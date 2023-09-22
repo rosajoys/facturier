@@ -14,11 +14,28 @@ public class ProduitController {
     @Autowired
     private ProduitService produitService;
 
-    @GetMapping("/client")
+// la methode suivante permet de creer ou ajouter un nouveau produit
+    @PostMapping("/produit")
+    public Produit createProduit(@RequestBody Produit produit){
+        return produitService.saveProduit(produit);
+    }
+
+    @GetMapping("/produit/{num_produit}")
+    public Produit getProduit(@PathVariable("num_produit") final Long num_produit){
+        Optional<Produit> produit = produitService.getProduitById(num_produit);
+        if(produit.isPresent()){
+            return produit.get();
+        }else
+            return null;
+    }
+
+//   la methode suivante permet de recuperer tous les produits de la bd
+    @GetMapping("/produit")
     public Iterable<Produit> getProduit(){
         return produitService.getProduit();
     }
 
+//    la methode suivante permet de mettre a jour un produit existant
     @PutMapping("/produit/{num_produit}")
     public Produit updateProduit(@PathVariable("num_produit") final Long num_produit, @RequestBody Produit produit){
         Optional<Produit> pr=produitService.getProduitById(num_produit);
@@ -48,5 +65,5 @@ public class ProduitController {
     @DeleteMapping("/produit/{num_produit}")
     public void deleteProduit(@PathVariable("num_produit") final Long num_produit){
         produitService.deleProduit(num_produit);
-    }6
+    }
 }

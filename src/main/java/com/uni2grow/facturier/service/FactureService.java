@@ -26,7 +26,7 @@ public class FactureService {
         factureRepository.deleteById(num_facture);
     }
 
-    public Facture saveProduit(Facture facture) {
+    public Facture saveFacture(Facture facture) {
         Facture savedFacture = factureRepository.save(facture);
         return savedFacture;
     }
