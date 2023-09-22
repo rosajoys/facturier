@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "utilisateur")
-@Access(AccessType.FIELD)
 public class Utilisateur {
 
     @Id
