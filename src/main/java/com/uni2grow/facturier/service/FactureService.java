@@ -13,8 +13,8 @@ public class FactureService {
     @Autowired
     private FactureRepository factureRepository;
 
-    public Optional<Facture> getFactureById(final Long num_facture) {
-        return factureRepository.findById(num_facture);
+    public Optional<Facture> getFactureById(final Long idFacture) {
+        return factureRepository.findById(idFacture);
     }
 
     public Iterable<Facture> getFacture() {
@@ -22,8 +22,8 @@ public class FactureService {
         return factureRepository.findAll();
     }
 
-    public void deleFacture(final Long num_facture) {
-        factureRepository.deleteById(num_facture);
+    public void deleFacture(final Long idFacture) {
+        factureRepository.deleteById(idFacture);
     }
 
     public Facture saveFacture(Facture facture) {

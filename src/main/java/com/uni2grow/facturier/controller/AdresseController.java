@@ -1,7 +1,6 @@
 package com.uni2grow.facturier.controller;
 
 import com.uni2grow.facturier.model.Adresse;
-import com.uni2grow.facturier.model.Facture;
 import com.uni2grow.facturier.service.AdresseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,7 @@ public class AdresseController {
     @Autowired
     private AdresseService adresseService;
 
-    @PostMapping("/adresse/{id_adresse}")
+    @PostMapping("/adresse/{idAdresse}")
     public Adresse createAdresse(@RequestBody Adresse adresse){
         return adresseService.saveAdresse(adresse);
     }
@@ -23,23 +22,23 @@ public class AdresseController {
       return adresseService.getAdresse();
     }
 
-    @PutMapping("/adresse/{id_adresse}")
-    public Adresse updateAdresse(@PathVariable("id_adresse") final long id_adresse, @RequestBody Adresse adresse){
-        Optional<Adresse> ad = adresseService.getAdresseById(id_adresse);
+    @PutMapping("/adresse/{idAdresse}")
+    public Adresse updateAdresse(@PathVariable("idAdresse") final long idAdresse, @RequestBody Adresse adresse){
+        Optional<Adresse> ad = adresseService.getAdresseById(idAdresse);
         if (ad.isPresent()){
             Adresse currentAdresse = ad.get();
-            String nature = adresse.getNature_adresse();
+            String nature = adresse.getNatureAdresse();
             if (nature!= null){
-                currentAdresse.setNature_adresse(nature);
+                currentAdresse.setNatureAdresse(nature);
             }
             String ville = adresse.getVille();
             if (ville!=null){
                 currentAdresse.setVille(ville);
             }
 
-            String box = adresse.getBp_adresse();
+            String box = adresse.getBpAdresse();
             if (box!=null){
-                currentAdresse.setBp_adresse(box);
+                currentAdresse.setBpAdresse(box);
             }
 
             String rue = adresse.getRue();
@@ -51,8 +50,8 @@ public class AdresseController {
             return null;
         }
     }
-    @DeleteMapping("/adresse/{id_adresse}")
-    public void deleteAdresse(@PathVariable("id_adresse") final Long id_adresse){
-        adresseService.deleAdresse(id_adresse);
+    @DeleteMapping("/adresse/{idAdresse}")
+    public void deleteAdresse(@PathVariable("idAdresse") final Long idAdresse){
+        adresseService.deleAdresse(idAdresse);
     }
 }

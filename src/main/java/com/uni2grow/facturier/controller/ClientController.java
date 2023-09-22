@@ -13,9 +13,9 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("client/{id_client}")
-    public Client getClient(@PathVariable("id_client") final Long id_client){
-        Optional<Client> client = clientService.getClientById(id_client);
+    @GetMapping("client/{idClient}")
+    public Client getClient(@PathVariable("idClient") final Long idClient){
+        Optional<Client> client = clientService.getClientById(idClient);
         if(client.isPresent()){
             return client.get();
         }else
@@ -27,24 +27,24 @@ public class ClientController {
     }
 
 
-    @PutMapping("/client/{id_client}")
-    public Client updateClient(@PathVariable("id_client") final Long id_client, @RequestBody Client client){
-        Optional<Client> cl=clientService.getClientById(id_client);
+    @PutMapping("/client/{idClient}")
+    public Client updateClient(@PathVariable("idClient") final Long idClient, @RequestBody Client client){
+        Optional<Client> cl=clientService.getClientById(idClient);
         if(cl.isPresent()) {
             Client currentClient = cl.get();
-            String firstName = client.getNom_client();
+            String firstName = client.getNomClient();
             if (firstName != null) {
-                currentClient.setNom_client(firstName);
+                currentClient.setNomClient(firstName);
             }
 
-            String lastName = client.getPrenom_client();
+            String lastName = client.getPrenomClient();
             if (lastName != null) {
-                currentClient.setPrenom_client(lastName);
+                currentClient.setPrenomClient(lastName);
             }
 
-            int numTel = client.getTel_client();
+            int numTel = client.getTelClient();
             if (numTel != 0) {
-                currentClient.setTel_client(numTel);
+                currentClient.setTelClient(numTel);
             }
             clientService.saveClient(currentClient);
             return currentClient;
@@ -53,8 +53,8 @@ public class ClientController {
         }
     }
 
-    @DeleteMapping("/client/{id_client}")
-    public void deleteClient(@PathVariable("Id_client") final Long id_client){
-        clientService.deleClientById(id_client);
+    @DeleteMapping("/client/{idClient}")
+    public void deleteClient(@PathVariable("IdClient") final Long idClient){
+        clientService.deleClientById(idClient);
     }
 }

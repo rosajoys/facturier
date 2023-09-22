@@ -25,28 +25,33 @@ public class FactureController {
         return factureService.getFacture();
     }
 //mise a jour de la facture
-    @PutMapping("/facture/{num_facture}")
-    public Facture updateFacture(@PathVariable("num_facture") final Long num_facture, @RequestBody Facture facture) {
-        Optional<Facture> fa = factureService.getFactureById(num_facture);
+    @PutMapping("/facture/{idFacture}")
+    public Facture updateFacture(@PathVariable("idFcture") final Long idFacture, @RequestBody Facture facture) {
+        Optional<Facture> fa = factureService.getFactureById(idFacture);
 
         if (fa.isPresent()) {
             Facture currentFacture = fa.get();
-            Long id = facture.getNum_facture();
+            Long id = facture.getIdFacture();
             if (id != 0) {
-                currentFacture.setNum_facture(id);
+                currentFacture.setIdFacture(id);
+            }
+
+            String number = facture.getNumFacture();
+            if (number!=null){
+                currentFacture.setNumFacture(number);
             }
 
             Client cl = facture.getClient();
-            Long idc = cl.getId_client();
+            Long idc = cl.getIdClient();
             if (idc != 0) {
-                cl.setId_client(idc);
+                cl.setIdClient(idc);
                 currentFacture.setClient(cl);
             }
 
             Utilisateur ut = facture.getUtilisateur();
-            Long idu = ut.getNum_utilisateur();
+            Long idu = ut.getIdUtilisateur();
             if (idu != 0) {
-                ut.setNum_utilisateur(idu);
+                ut.setIdUtilisateur(idu);
                 currentFacture.setUtilisateur(ut);
             }
             return currentFacture;
@@ -55,8 +60,8 @@ public class FactureController {
         }
     }
 //suppression de la facture en utilisant son identifiant
-    @DeleteMapping("/facture/{num_facture}")
-    public void deleteFacture(@PathVariable("num_facture") final Long num_facture){
-        factureService.deleFacture(num_facture);
+    @DeleteMapping("/facture/{idFacture}")
+    public void deleteFacture(@PathVariable("idFacture") final Long idFacture){
+        factureService.deleFacture(idFacture);
     }
 }

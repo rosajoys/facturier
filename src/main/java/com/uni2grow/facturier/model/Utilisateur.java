@@ -10,16 +10,14 @@ public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long num_utilisateur;
+    Long idUtilisateur;
 
-    @Column(name = "first_name")
-    String nom_utilisateur;
+    String nomUtilisateur;
 
-    @Column(name = "last_name")
-    String prenom_utilisateur;
+    String prenomUtilisateur;
 
-    String adresse_utilisateur;
+    String adresseUtilisateur;
 
-    Integer tel_utilisateur;
+    Integer telUtilisateur;
 
 }

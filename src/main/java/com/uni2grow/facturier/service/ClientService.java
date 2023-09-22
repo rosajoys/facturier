@@ -14,8 +14,8 @@ public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public Optional<Client> getClientById(final Long id_client){
-        return clientRepository.findById(id_client);
+    public Optional<Client> getClientById(final Long idClient){
+        return clientRepository.findById(idClient);
     }
     public Iterable<Client>getClient(){
 
@@ -26,8 +26,9 @@ public class ClientService {
 //        return clientRepository.findByName(nom_client);
 //    }
 
-    public void deleClientById(final Long id_client){
-        clientRepository.deleteById(id_client);
+    public void deleClientById(final Long idClient){
+
+        clientRepository.deleteById(idClient);
     }
 
     public Client saveClient(Client client){

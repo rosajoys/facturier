@@ -14,19 +14,16 @@ public class AdresseService {
     @Autowired
     private AdresseRepository adresseRepository;
 
-    public Optional<Adresse> getAdresseById(final Long id_adresse){
-        return adresseRepository.findById(id_adresse);
+    public Optional<Adresse> getAdresseById(final Long idAdresse){
+        return adresseRepository.findById(idAdresse);
     }
     public Iterable<Adresse>getAdresse(){
 
         return adresseRepository.findAll();
     }
-//    public Iterable<Adresse> getAdresseByName(String ville){
-//        return adresseRepository.findByName(ville);
-//    }
 
-    public void deleAdresse(final Long id_adresse){
-        adresseRepository.deleteById(id_adresse);
+    public void deleAdresse(final Long idAdresse){
+        adresseRepository.deleteById(idAdresse);
     }
 
     public Adresse saveAdresse(Adresse adresse){

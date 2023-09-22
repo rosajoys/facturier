@@ -20,9 +20,9 @@ public class ProduitController {
         return produitService.saveProduit(produit);
     }
 
-    @GetMapping("/produit/{num_produit}")
-    public Produit getProduit(@PathVariable("num_produit") final Long num_produit){
-        Optional<Produit> produit = produitService.getProduitById(num_produit);
+    @GetMapping("/produit/{idProduit}")
+    public Produit getProduit(@PathVariable("idProduit") final Long idProduit){
+        Optional<Produit> produit = produitService.getProduitById(idProduit);
         if(produit.isPresent()){
             return produit.get();
         }else
@@ -36,24 +36,24 @@ public class ProduitController {
     }
 
 //    la methode suivante permet de mettre a jour un produit existant
-    @PutMapping("/produit/{num_produit}")
-    public Produit updateProduit(@PathVariable("num_produit") final Long num_produit, @RequestBody Produit produit){
-        Optional<Produit> pr=produitService.getProduitById(num_produit);
+    @PutMapping("/produit/{idProduit}")
+    public Produit updateProduit(@PathVariable("idProduit") final Long idProduit, @RequestBody Produit produit){
+        Optional<Produit> pr=produitService.getProduitById(idProduit);
         if(pr.isPresent()) {
             Produit currentProduit = pr.get();
-            String firstName = produit.getNom_produit();
+            String firstName = produit.getNomProduit();
             if (firstName != null) {
-                currentProduit.setNom_produit(firstName);
+                currentProduit.setNomProduit(firstName);
             }
 
-            double prix = produit.getPrix_produit();
+            double prix = produit.getPrixProduit();
             if (prix != 0.0) {
-                currentProduit.setPrix_produit(prix);
+                currentProduit.setPrixProduit(prix);
             }
 
-            double quantite = produit.getQtte_produit();
+            double quantite = produit.getQtteProduit();
             if (quantite!=0.0) {
-                currentProduit.setQtte_produit(quantite);
+                currentProduit.setQtteProduit(quantite);
             }
             produitService.saveProduit(currentProduit);
             return currentProduit;
@@ -62,8 +62,8 @@ public class ProduitController {
         }
     }
 
-    @DeleteMapping("/produit/{num_produit}")
-    public void deleteProduit(@PathVariable("num_produit") final Long num_produit){
-        produitService.deleProduit(num_produit);
+    @DeleteMapping("/produit/{idProduit}")
+    public void deleteProduit(@PathVariable("idProduit") final Long idProduit){
+        produitService.deleProduit(idProduit);
     }
 }

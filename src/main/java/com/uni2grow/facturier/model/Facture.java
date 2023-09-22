@@ -13,7 +13,9 @@ import java.util.List;
 public class Facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long num_facture;
+    Long idFacture;
+
+    String numFacture;
 
     @OneToOne
     @JoinColumn(name = "id_client")
@@ -22,4 +24,8 @@ public class Facture {
     @OneToOne
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
+
+    @ManyToMany
+    private List<Facture> produit = new ArrayList<>();
 }
+

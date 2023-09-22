@@ -3,6 +3,9 @@ package com.uni2grow.facturier.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "produit")
@@ -10,9 +13,16 @@ public class Produit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long num_produit;
+    Long idProduit;
 
-    String nom_produit;
-    double Prix_produit;
-    double qtte_produit;
+    String nomProduit;
+    double PrixProduit;
+    double qtteProduit;
+    double poids;
+
+    @ManyToMany
+    private List<Produit> client = new ArrayList<>();
+
+    @ManyToMany
+    private List<Produit> facture = new ArrayList<>();
 }

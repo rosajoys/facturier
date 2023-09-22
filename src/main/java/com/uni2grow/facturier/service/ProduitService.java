@@ -14,8 +14,8 @@ public class ProduitService {
     @Autowired
     private ProduitRepository produitRepository;
 
-    public Optional<Produit> getProduitById(final Long num_produit){
-        return produitRepository.findById(num_produit);
+    public Optional<Produit> getProduitById(final Long idProduit){
+        return produitRepository.findById(idProduit);
     }
     public Iterable<Produit>getProduit(){
 
@@ -25,8 +25,8 @@ public class ProduitService {
 //    public Iterable<Produit> getProduitByName(String nom_produit){
 //        return produitRepository.findByName(nom_produit);
 //    }
-    public void deleProduit(final Long num_produit){
-        produitRepository.deleteById(num_produit);
+    public void deleProduit(final Long idProduit){
+        produitRepository.deleteById(idProduit);
     }
 
     public Produit saveProduit(Produit produit){
