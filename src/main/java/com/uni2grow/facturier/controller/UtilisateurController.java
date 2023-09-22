@@ -12,7 +12,7 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    @GetMapping
+    @GetMapping("/utilisateur")
     public Iterable<Utilisateur> getUtilisateur(){
       return utilisateurService.getUtilisateur();
     }

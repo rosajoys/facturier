@@ -1,12 +1,14 @@
 package com.uni2grow.facturier.controller;
 
 import com.uni2grow.facturier.model.Adresse;
+import com.uni2grow.facturier.model.Facture;
 import com.uni2grow.facturier.service.AdresseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@RestController
 public class AdresseController {
     @Autowired
     private AdresseService adresseService;
@@ -48,5 +50,9 @@ public class AdresseController {
         }else {
             return null;
         }
+    }
+    @DeleteMapping("/adresse/{id_adresse}")
+    public void deleteAdresse(@PathVariable("id_adresse") final Long id_adresse){
+        adresseService.deleAdresse(id_adresse);
     }
 }

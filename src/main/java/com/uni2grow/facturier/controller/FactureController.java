@@ -55,7 +55,7 @@ public class FactureController {
         }
     }
 //suppression de la facture en utilisant son identifiant
-    @DeleteMapping
+    @DeleteMapping("/facture/{num_facture}")
     public void deleteFacture(@PathVariable("num_facture") final Long num_facture){
         factureService.deleFacture(num_facture);
     }
