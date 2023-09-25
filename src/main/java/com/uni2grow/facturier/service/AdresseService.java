@@ -22,7 +22,7 @@ public class AdresseService {
         return adresseRepository.findAll();
     }
 
-    public void deleAdresse(final Long idAdresse){
+    public void deleteAdresse(final Long idAdresse){
         adresseRepository.deleteById(idAdresse);
     }
 

@@ -1,6 +1,6 @@
 package com.uni2grow.facturier.service;
 
-import com.uni2grow.facturier.model.Produit;
+
 import com.uni2grow.facturier.model.Utilisateur;
 import com.uni2grow.facturier.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,5 +13,9 @@ public class UtilisateurService {
     private UtilisateurRepository utilisateurRepository;
     public Iterable<Utilisateur>getUtilisateur(){
         return utilisateurRepository.findAll();
+    }
+    public Utilisateur saveUtilisateur(Utilisateur utilisateur){
+        Utilisateur savedUtilisateur = utilisateurRepository.save(utilisateur);
+        return savedUtilisateur;
     }
 }

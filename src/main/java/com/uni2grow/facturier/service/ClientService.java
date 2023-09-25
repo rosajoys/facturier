@@ -22,12 +22,9 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-//    public Iterable<Client> getClientByName(String nom_client){
-//        return clientRepository.findByName(nom_client);
-//    }
 
-    public void deleClientById(final Long idClient){
 
+    public void deleteClientById(final Long idClient){
         clientRepository.deleteById(idClient);
     }
 

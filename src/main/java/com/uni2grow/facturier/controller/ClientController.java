@@ -1,7 +1,6 @@
 package com.uni2grow.facturier.controller;
 
 import com.uni2grow.facturier.model.Client;
-import com.uni2grow.facturier.model.Produit;
 import com.uni2grow.facturier.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +12,10 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+    @PostMapping("/client/{idClient}")
+    public Client createClient(@RequestBody Client client){
+        return clientService.saveClient(client);
+    }
     @GetMapping("client/{idClient}")
     public Client getClient(@PathVariable("idClient") final Long idClient){
         Optional<Client> client = clientService.getClientById(idClient);
@@ -52,9 +55,8 @@ public class ClientController {
             return null;
         }
     }
-
     @DeleteMapping("/client/{idClient}")
-    public void deleteClient(@PathVariable("IdClient") final Long idClient){
-        clientService.deleClientById(idClient);
+    public void deleteClient(@PathVariable("idClient") final Long idClient){
+        clientService.deleteClientById(idClient);
     }
 }

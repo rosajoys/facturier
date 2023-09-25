@@ -52,6 +52,6 @@ public class AdresseController {
     }
     @DeleteMapping("/adresse/{idAdresse}")
     public void deleteAdresse(@PathVariable("idAdresse") final Long idAdresse){
-        adresseService.deleAdresse(idAdresse);
+        adresseService.deleteAdresse(idAdresse);
     }
 }

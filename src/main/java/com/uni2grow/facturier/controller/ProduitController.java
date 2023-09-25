@@ -1,5 +1,6 @@
 package com.uni2grow.facturier.controller;
 
+import com.uni2grow.facturier.model.Adresse;
 import com.uni2grow.facturier.model.Client;
 import com.uni2grow.facturier.model.Produit;
 import com.uni2grow.facturier.service.ClientService;
@@ -15,10 +16,10 @@ public class ProduitController {
     private ProduitService produitService;
 
 // la methode suivante permet de creer ou ajouter un nouveau produit
-    @PostMapping("/produit")
-    public Produit createProduit(@RequestBody Produit produit){
-        return produitService.saveProduit(produit);
-    }
+@PostMapping("/produit/{idProduit}")
+public Produit createAdresse(@RequestBody Produit produit){
+    return produitService.saveProduit(produit);
+}
 
     @GetMapping("/produit/{idProduit}")
     public Produit getProduit(@PathVariable("idProduit") final Long idProduit){

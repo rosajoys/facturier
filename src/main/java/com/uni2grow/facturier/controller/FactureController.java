@@ -1,9 +1,6 @@
 package com.uni2grow.facturier.controller;
 
-import com.uni2grow.facturier.model.Client;
-import com.uni2grow.facturier.model.Facture;
-import com.uni2grow.facturier.model.Produit;
-import com.uni2grow.facturier.model.Utilisateur;
+import com.uni2grow.facturier.model.*;
 import com.uni2grow.facturier.service.FactureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +12,7 @@ public class FactureController {
     @Autowired
     private FactureService factureService;
 // creation ou ajout d'une nouvelle facture
-    @PostMapping("/facture")
+    @PostMapping("/facture/{idFacture}")
     public Facture createFacture(@RequestBody Facture facture) {
         return factureService.saveFacture(facture);
     }
