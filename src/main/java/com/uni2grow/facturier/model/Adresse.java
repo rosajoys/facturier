@@ -15,11 +15,10 @@ public class Adresse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAdresse;
 
+   @Column(name = "natureAdresse")
    private String natureAdresse;
    private String bpAdresse;
    private String ville;
    private String rue;
-   @ManyToMany
-    private List<Adresse> client = new ArrayList<>();
 
 }

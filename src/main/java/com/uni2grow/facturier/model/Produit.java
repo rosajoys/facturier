@@ -19,10 +19,4 @@ public class Produit {
     double PrixProduit;
     double qtteProduit;
     double poids;
-
-    @ManyToMany
-    private List<Produit> client = new ArrayList<>();
-
-    @ManyToMany
-    private List<Produit> facture = new ArrayList<>();
 }

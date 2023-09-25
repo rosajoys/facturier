@@ -20,11 +20,5 @@ public class Client {
 
     Integer telClient;
 
-    @ManyToMany
-    private List<Client> adresse = new ArrayList<>();
-
-    @ManyToMany
-    private List<Client> produit = new ArrayList<>();
-
    }
 
