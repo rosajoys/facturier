@@ -8,14 +8,13 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "adresse")
+@Table(name = "adresses")
 public class Adresse {
 
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAdresse;
 
-   @Column(name = "natureAdresse")
    private String natureAdresse;
    private String bpAdresse;
    private String ville;

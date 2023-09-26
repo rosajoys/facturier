@@ -12,26 +12,26 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @PostMapping("/client/{idClient}")
+    @PostMapping("/clients")
     public Client createClient(@RequestBody Client client){
         return clientService.saveClient(client);
     }
-    @GetMapping("client/{idClient}")
-    public Client getClient(@PathVariable("idClient") final Long idClient){
+    @GetMapping("clients/{id_client}")
+    public Client getClient(@PathVariable("id_client") final Long idClient){
         Optional<Client> client = clientService.getClientById(idClient);
         if(client.isPresent()){
             return client.get();
         }else
             return null;
     }
-    @GetMapping("/client")
+    @GetMapping("/clients")
     public Iterable<Client> getClient(){
         return clientService.getClient();
     }
 
 
-    @PutMapping("/client/{idClient}")
-    public Client updateClient(@PathVariable("idClient") final Long idClient, @RequestBody Client client){
+    @PutMapping("/clients/{id_client}")
+    public Client updateClient(@PathVariable("id_client") final Long idClient, @RequestBody Client client){
         Optional<Client> cl=clientService.getClientById(idClient);
         if(cl.isPresent()) {
             Client currentClient = cl.get();
@@ -55,7 +55,7 @@ public class ClientController {
             return null;
         }
     }
-    @DeleteMapping("/client/{idClient}")
+    @DeleteMapping("/clients/{id_client}")
     public void deleteClient(@PathVariable("idClient") final Long idClient){
         clientService.deleteClientById(idClient);
     }

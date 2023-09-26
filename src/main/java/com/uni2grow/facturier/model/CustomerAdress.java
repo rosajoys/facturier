@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "posseder")
-public class Posseder {
+@Table(name = "customer_adresses")
+public class CustomerAdress {
     @Id
     @OneToOne
     @JoinColumn(name = "idClient")

@@ -16,13 +16,13 @@ public class ProduitController {
     private ProduitService produitService;
 
 // la methode suivante permet de creer ou ajouter un nouveau produit
-@PostMapping("/produit/{idProduit}")
+@PostMapping("/produits")
 public Produit createAdresse(@RequestBody Produit produit){
     return produitService.saveProduit(produit);
 }
 
-    @GetMapping("/produit/{idProduit}")
-    public Produit getProduit(@PathVariable("idProduit") final Long idProduit){
+    @GetMapping("/produits/{id_produit}")
+    public Produit getProduit(@PathVariable("id_produit") final Long idProduit){
         Optional<Produit> produit = produitService.getProduitById(idProduit);
         if(produit.isPresent()){
             return produit.get();
@@ -31,14 +31,14 @@ public Produit createAdresse(@RequestBody Produit produit){
     }
 
 //   la methode suivante permet de recuperer tous les produits de la bd
-    @GetMapping("/produit")
+    @GetMapping("/produits")
     public Iterable<Produit> getProduit(){
         return produitService.getProduit();
     }
 
 //    la methode suivante permet de mettre a jour un produit existant
-    @PutMapping("/produit/{idProduit}")
-    public Produit updateProduit(@PathVariable("idProduit") final Long idProduit, @RequestBody Produit produit){
+    @PutMapping("/produits/{id_produit}")
+    public Produit updateProduit(@PathVariable("id_produit") final Long idProduit, @RequestBody Produit produit){
         Optional<Produit> pr=produitService.getProduitById(idProduit);
         if(pr.isPresent()) {
             Produit currentProduit = pr.get();
@@ -63,8 +63,8 @@ public Produit createAdresse(@RequestBody Produit produit){
         }
     }
 
-    @DeleteMapping("/produit/{idProduit}")
-    public void deleteProduit(@PathVariable("idProduit") final Long idProduit){
-        produitService.deleProduit(idProduit);
+    @DeleteMapping("/produits/{id_produit}")
+    public void deleteProduit(@PathVariable("id_produit") final Long idProduit){
+        produitService.deleteProduit(idProduit);
     }
 }

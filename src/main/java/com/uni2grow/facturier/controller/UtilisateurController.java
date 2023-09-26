@@ -16,11 +16,11 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    @PostMapping("/utilisateur/{idUtilisateur}")
+    @PostMapping("/utilisateurs")
     public Utilisateur createUtilisateur(@RequestBody Utilisateur utilisateur){
         return utilisateurService.saveUtilisateur(utilisateur);
     }
-    @GetMapping("/utilisateur")
+    @GetMapping("/utilisateurs")
     public Iterable<Utilisateur> getUtilisateur(){
       return utilisateurService.getUtilisateur();
     }

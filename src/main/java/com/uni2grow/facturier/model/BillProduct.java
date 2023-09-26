@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "composer")
-public class Composer {
+@Table(name = "bill_products")
+public class BillProduct {
     @Id
     @OneToOne
     @JoinColumn(name = "idFacture")

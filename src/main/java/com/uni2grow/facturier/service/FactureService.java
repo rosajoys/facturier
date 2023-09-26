@@ -22,7 +22,7 @@ public class FactureService {
         return factureRepository.findAll();
     }
 
-    public void deleFacture(final Long idFacture) {
+    public void deleteFacture(final Long idFacture) {
         factureRepository.deleteById(idFacture);
     }
 

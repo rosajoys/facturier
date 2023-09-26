@@ -25,7 +25,7 @@ public class ProduitService {
 //    public Iterable<Produit> getProduitByName(String nom_produit){
 //        return produitRepository.findByName(nom_produit);
 //    }
-    public void deleProduit(final Long idProduit){
+    public void deleteProduit(final Long idProduit){
         produitRepository.deleteById(idProduit);
     }
 

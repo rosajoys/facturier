@@ -12,18 +12,18 @@ public class FactureController {
     @Autowired
     private FactureService factureService;
 // creation ou ajout d'une nouvelle facture
-    @PostMapping("/facture/{idFacture}")
+    @PostMapping("/factures")
     public Facture createFacture(@RequestBody Facture facture) {
         return factureService.saveFacture(facture);
     }
 //recuperation de la facture ou affichage de celle-ci
-    @GetMapping("/facture")
+    @GetMapping("/factures")
     public Iterable<Facture> getFacture() {
         return factureService.getFacture();
     }
 //mise a jour de la facture
-    @PutMapping("/facture/{idFacture}")
-    public Facture updateFacture(@PathVariable("idFcture") final Long idFacture, @RequestBody Facture facture) {
+    @PutMapping("/factures/{id_facture}")
+    public Facture updateFacture(@PathVariable("id_facture") final Long idFacture, @RequestBody Facture facture) {
         Optional<Facture> fa = factureService.getFactureById(idFacture);
 
         if (fa.isPresent()) {
@@ -57,8 +57,8 @@ public class FactureController {
         }
     }
 //suppression de la facture en utilisant son identifiant
-    @DeleteMapping("/facture/{idFacture}")
-    public void deleteFacture(@PathVariable("idFacture") final Long idFacture){
-        factureService.deleFacture(idFacture);
+    @DeleteMapping("/factures/{id_facture}")
+    public void deleteFacture(@PathVariable("id_facture") final Long idFacture){
+        factureService.deleteFacture(idFacture);
     }
 }

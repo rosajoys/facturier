@@ -12,18 +12,18 @@ public class AdresseController {
     @Autowired
     private AdresseService adresseService;
 
-    @PostMapping("/adresse/{idAdresse}")
+    @PostMapping("/adresses")
     public Adresse createAdresse(@RequestBody Adresse adresse){
         return adresseService.saveAdresse(adresse);
     }
 
-    @GetMapping("/adresse")
+    @GetMapping("/adresses")
     public Iterable<Adresse> getAdresse(){
       return adresseService.getAdresse();
     }
 
-    @PutMapping("/adresse/{idAdresse}")
-    public Adresse updateAdresse(@PathVariable("idAdresse") final long idAdresse, @RequestBody Adresse adresse){
+    @PutMapping("/adresses/{id_adresse}")
+    public Adresse updateAdresse(@PathVariable("id_adresse") final long idAdresse, @RequestBody Adresse adresse){
         Optional<Adresse> ad = adresseService.getAdresseById(idAdresse);
         if (ad.isPresent()){
             Adresse currentAdresse = ad.get();
@@ -50,8 +50,8 @@ public class AdresseController {
             return null;
         }
     }
-    @DeleteMapping("/adresse/{idAdresse}")
-    public void deleteAdresse(@PathVariable("idAdresse") final Long idAdresse){
+    @DeleteMapping("/adresse/{id_adresse}")
+    public void deleteAdresse(@PathVariable("id_adresse") final Long idAdresse){
         adresseService.deleteAdresse(idAdresse);
     }
 }
