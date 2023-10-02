@@ -8,15 +8,15 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "produits")
-public class Produit {
+@Table(name = "products")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idProduit;
+    Long idProduct;
 
-    String nomProduit;
-    double PrixProduit;
-    double qtteProduit;
-    double poids;
+    String nameProduct;
+    double PriceProduct;
+    double qttyProduct;
+    double weigh;
 }

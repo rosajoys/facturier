@@ -9,14 +9,14 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "adresses")
-public class Adresse {
+public class Adress {
 
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAdresse;
+    private Long idAdress;
 
-   private String natureAdresse;
-   private String bpAdresse;
+   private String natureAdress;
+   private String bpAdress;
    private String ville;
    private String rue;
 

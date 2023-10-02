@@ -8,11 +8,11 @@ import lombok.Data;
 @Table(name = "bill_products")
 public class BillProduct {
     @Id
-    @OneToOne
-    @JoinColumn(name = "idFacture")
-    private Facture facture;
+    @ManyToOne
+    @JoinColumn(name = "id_bill")
+    private Bill bill;
 
-    @OneToOne
-    @JoinColumn(name = "idProduit")
-    private Produit produit;
+    @ManyToOne
+    @JoinColumn(name = "id_product")
+    private Product product;
 }

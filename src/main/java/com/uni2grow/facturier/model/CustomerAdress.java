@@ -8,11 +8,11 @@ import lombok.Data;
 @Table(name = "customer_adresses")
 public class CustomerAdress {
     @Id
-    @OneToOne
-    @JoinColumn(name = "idClient")
-    private  Client client;
+    @ManyToOne
+    @JoinColumn(name = "id_Customer")
+    private  Customer customer;
 
-    @OneToOne
-    @JoinColumn(name = "idAdresse")
-    private Adresse adresse;
+    @ManyToOne
+    @JoinColumn(name = "id_Adress")
+    private Adress adress;
 }
